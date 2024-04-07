@@ -89,8 +89,10 @@ app.post('/api/shorturl', function(req, res){
 app.get('/api/shorturl/:shortCode', async function(req, res) {
   const shortCode = req.params.shortCode;
   console.log(shortCode);
+  console.log(typeof(+shortCode));
   //console.log(urls);
-  const urlDoc = await urls.findOne({short_url: shortCode});
+  const urlDoc = await urls.findOne({short_url: +shortCode});
+  console.log("pleaseeee");
   console.log(urlDoc);
   //res.redirect.apply("https://google.com");
   //res.redirect.apply(urlDoc.url);
